@@ -144,6 +144,8 @@ Happy coding & good luck! 🚀
 ---
 ## Development Journal
 
+###### PT-br version
+
 De acordo com o que interpretei no README da API, objetivo principal da aplicação é realizar um request para a API disponibilizada, onde retornará uma lista com diversos artigos. Esta lista deve ser apresentada para o usuário, que poderá ler os detalhes do artigo clicando no botão 'Read more' do card correspondente. 
 
 A ideia inicial foi que a aplicação fosse simples e fácil de usar, sem "features" desnecessárias dentro do tempo disponível para o desenvolvimento. Levando isso em consideração, alguma coisas como cores e tipografia foram mantidas já que possuem um impacto leve porém com contraste entre o background e os textos.
@@ -169,7 +171,7 @@ Para iniciar o desenvolvimento do projeto, incialmente tentei fazer um levantame
 
 Nesse processo comecei realizando um scketch manual de como o layout da aplicação poderia ficar, e então criei um Moadboard simples apenas para salvar e usar como referência imagens de outros projetos de contexto similar a este. Também decidi usar SASS por ser o pré processador com o qual mais trabalhei e conheço.
 
-Como gosto bastante de fazer animações em CSS, pesquisei por referências em sites como o CodePen para utilizar a animação de 'emoji' que aparece no componente de seção vazia.
+Como gosto bastante de fazer animações em CSS, pesquisei por referências em sites como o CodePen para utilizar a animação de 'emoji' que aparece no componente de seção vazia. Também tentei manter o aplicativo responsável o máximo possível durante o tempo do desafio.
 
 Apesar de a requisição sempre ser realizada quando a página é aberta, foi adicionado um botão para realizar o refresh da lista caso o usuário deseje. 
 
@@ -177,15 +179,60 @@ Além disso, é possível realizar uma busca pelo títutlo dos artigos através 
 
 Escolhi realizar o teste com Vue pela afinidade que venho construindo com o framework e também porque faz parte da stack solicitada pela Xhocware. 
 
-Como desenvolvi a aplicação em Vue 3 e estou acostumada a trabalhar com a versão 2, algumas coisas foram diferentes de manipular, como por exemplo o setup de testes. Tentei utilizar o test-utils e o vue-testing-library, porém ambos falharam no momento de rederizar o componente. Devido ao tempo para a entrega do desafio, decidi seguir com a entrega sem os testes a princípio, mas continuo tentando realizar a configuração aqui para entender como resolver o problema e posso atualizar o repositório futuramente :). De forma geral, não houveram outros grandes impedimentos durante o desenvolvimento.
+Como desenvolvi a aplicação em Vue 3 e estou acostumada a trabalhar com a versão 2, algumas coisas foram diferentes de manipular, como por exemplo o setup de testes. Tentei utilizar o test-utils porém tive problemas na trativa do Vuex. Devido ao tempo para a entrega do desafio, decidi seguir com a entrega sem os testes a princípio, mas continuo tentando realizar a configuração aqui para entender como resolver o problema e posso atualizar o repositório futuramente :). De forma geral, não houveram outros grandes impedimentos durante o desenvolvimento.
 
 ### Melhorias que gostaria de fazer
 
-- Conforme citado no README, gostaria de adicionar paginação à lista de artigos principalmente em função do número total de artigos armazenados.
-- Adicionar os testes para os seguintes pontos:
+- Conforme citado no README, gostaria de adicionar paginação à lista de artigos principalmente em função do número total de artigos armazenados;
+- Adicionar os testes para os seguintes pontos;
     - Quando alterar o valor do input de pesquisa, o current article deve ser null
     - Quando clicar no Read More, o current article deve ser diferente de null
     - Quando preencher um valor no input, o número de cards na tela deve ser igual ao filteredList length
-- Avaliar com mais tempo as otimizações possíveis nas lógicas desenvolvidas dentro da aplicação
-- Avaliar com mais tempo uma forma de organizar o app para deixar mais modular partes que poderiam ser reutilizadas caso a aplicação tivesse o objetivo de escalar
-- Mover a função que busca os artigos para o arquivo de ArticlesList
+- Avaliar com mais tempo as otimizações possíveis nas lógicas desenvolvidas dentro da aplicação;
+- Avaliar com mais tempo uma forma de organizar o app para deixar mais modular partes que poderiam ser reutilizadas caso a aplicação tivesse o objetivo de escalar;
+- Mover a função que busca os artigos para o arquivo de ArticlesList;
+
+--- 
+
+###### EN version
+
+According to what I interpreted in the API README, the application's main objective is to make a request to the available API, which will return a list with several articles. This list must be presented to the user, which will be able to read the article details by clicking on the 'Read more' button on the corresponding card.
+
+The initial idea was for the application to be simple and easy to use, without unnecessary "features" within the time available for development. With that in mind, some things like colors and typography were kept, as they have a gentle impact but with contrast between the background and the texts.
+
+The common flow for using the application would be: 1 - Access the application; 2 - The request to the API is made and a loading animation appears in the left section until the request is complete and the list of articles has been saved in the application state. 3 - If an error occurs in the request, the empty section component is called and renders an emoji and a message; 4 - If everything goes well with the request, the list is rendered and the right section remains blank, only with the 'emoji' animation with neutral expression, and an informative message guiding the user to click on one of the articles. 5 - When clicking on the article, it must be saved in the application state as currentArticle and then the ArticleDetail component is rendered with the article information. 6 - If the user searches for another article through the search filter, the value of currentArticle is set back to null so the right section is blank until another article is selected, as requested in the README of the challenge.
+
+### How to run
+
+- Initially, the API must be running locally to receive requests from the application: cd api -> yarn install -> yarn api
+- In another terminal, access the directory corresponding to the application: cd app -> npm install -> npm run serve
+
+### Development process
+
+To start the development of the project, I initially tried to survey all the mandatory requirements that I could find in the project's README and created a checklist with it, in this way I could better organize my decision making and break some tasks into smaller and simpler pieces.
+
+In this process I started by making a manual sketch of how the application's layout could look, and then I created a simple Moadboard just to save and use as a reference images from other projects with a similar context. I also decided to use SASS because it's the preprocessor I've worked with and know the most.
+
+As I really like making animations in CSS, I searched for references on sites like CodePen to use the 'emoji' animation that appears in the empty section component. I also tried to keep the app responsive as possible during the challenge time.
+
+Although the request is always performed when the page is opened, a button was added to refresh the list if the user wants to.
+
+In addition, it is possible to perform a search by the title of the articles through the search filter that is at the beginning of the left section (above the list of articles).
+
+I chose to do the challenge with Vue because of the affinity I've been building with the framework and also because it's part of the stack requested by Xhockware.
+
+As I developed the application in Vue 3 and I'm used to working with version 2, some things were different to handle, such as the test setup. I tried to use test-utils but have problems to work with the Vuex state. Due to the time for the challenge delivery, I decided to go ahead with the delivery without the tests at first, but I'm still trying to perform the configuration here to understand how to solve the problem and I can update the repository in the future :). Overall, there were no other major impediments during development.
+
+### Improvements I would like to make if I had more time
+
+- As mentioned in the README, I would like to add pagination to the article list, mainly due to the total number of articles stored;
+- Add tests for the following points;
+  - When changing the search input value, the current article must be null
+  - When clicking on Read More, the current article must be different from null
+  - When filling a value in the input, the number of cards on the screen must be equal to the filteredList length;
+- Evaluate with more time the possible optimizations in the logics developed within the application;
+- Evaluate with more time a way to organize the app to make parts more modular that could be reused if the application had the objective of scaling;
+- Move the function that fetches the articles to the ArticlesList file;
+
+[Original app repository](https://github.com/carolineignr/list-articles)
+[Simple moadboard to help guide on article stylish](https://caroline555183.invisionapp.com/board/5U8051138CXPNAF)
