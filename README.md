@@ -235,4 +235,7 @@ As I developed the application in Vue 3 and I'm used to working with version 2, 
 - Move the function that fetches the articles to the ArticlesList file;
 
 [Original app repository](https://github.com/carolineignr/list-articles)
+ -  You can see all original commits here
+
 [Simple moadboard to help guide on article stylish](https://caroline555183.invisionapp.com/board/5U8051138CXPNAF)
+ - Articles web designs references
